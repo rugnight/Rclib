@@ -1,0 +1,8 @@
+﻿
+.DS_Store
+Makefile
+tags
+*.make
+
+/build
+/obj
