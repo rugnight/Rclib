@@ -55,16 +55,6 @@ bool Window::create(u32 width, u32 height, const char *name)
 
     glfwMakeContextCurrent(window_);
 
-    // ------------------------------
-    // glew
-    // glfwMakeContextCurrent(window_); の後でないと失敗する。
-    // ------------------------------
-    glewExperimental = GL_TRUE;
-    if ( GLEW_OK != glewInit() ) {
-        printf("glewInit failed.\n");
-        return false;
-    }
-
     glfwSwapInterval(1);
 
     return true;

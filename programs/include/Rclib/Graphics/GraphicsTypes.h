@@ -12,7 +12,7 @@
 
 namespace rc {
 
-enum class ClearOptions : u8 {
+enum class ClearOptions : std::uint8_t {
     /// @brief カラーバッファ
     Color = 0x01,
     /// @brief ステンシルバッファ
@@ -24,6 +24,23 @@ enum class ClearOptions : u8 {
     ColorStencilDepth = (Color | Stencil | Depth),
     StencilDepth = (Stencil | Depth),
 };
+
+constexpr ClearOptions operator|(ClearOptions a, ClearOptions b)
+{
+    return static_cast<ClearOptions>(static_cast<std::uint8_t>(a) |
+                                     static_cast<std::uint8_t>(b));
+}
+
+constexpr ClearOptions operator&(ClearOptions a, ClearOptions b)
+{
+    return static_cast<ClearOptions>(static_cast<std::uint8_t>(a) &
+                                     static_cast<std::uint8_t>(b));
+}
+
+ClearOptions& operator|=(ClearOptions& a, ClearOptions b);
+
+ClearOptions& operator&=(ClearOptions& a, ClearOptions b);
+
 }
 
 #endif  // __FILENAME__H__

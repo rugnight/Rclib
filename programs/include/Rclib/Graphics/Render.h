@@ -8,6 +8,7 @@
 #define __RC__RENDER__
 
 #include "Rclib/Core/Core.h"
+#include "Rclib/Graphics/GraphicsTypes.h"
 
 namespace rc {
 namespace graphics {
@@ -26,12 +27,14 @@ public:
         return render;
     }
 
-    void initialize(u32 width, u32 height);
+    bool initialize();
     void terminate();
 
     void drawArrays(u32 primitiveType, u32 startOffset, u64 vertexCount);
 
     void drawQuad();
+
+    void clear(const ClearOptions& clear_options);
 };
 }
 }

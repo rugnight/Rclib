@@ -1,6 +1,7 @@
 solution "rclib"
    configurations { "Debug", "Release" }
-   platforms { "x64" }
+   platforms { "native" }
+   -- platforms { "x64" }
    --platforms { "universal64" }
    --platforms { "universal32" }
    --platforms { "Universal" }
@@ -17,7 +18,6 @@ solution "rclib"
           "./programs/include/**.h",
           "./programs/source/**.cpp",
       }
-      configuration {"MacOSX"}
 
       includedirs { -- -I/usr/include/openglに相当
           "./programs/include",
